@@ -1,10 +1,10 @@
-Feature: login to word press
+Feature: Search on Gogle
 
-  In order to access the Admin Dashboard
-  As an administrator
-  I need to access the login page and enter credentials
+  In order to see google results
+  As an regular user
+  I need to access and search google
 
-  Scenario Outline: try login
+  Scenario Outline: Search for simple term
 
     When I search for "<SearchTerm>"
     Then I should see "<SearchTerm>" on the results
