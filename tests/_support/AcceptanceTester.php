@@ -16,11 +16,35 @@
  *
  * @SuppressWarnings(PHPMD)
 */
+
 class AcceptanceTester extends \Codeception\Actor
 {
     use _generated\AcceptanceTesterActions;
 
+    /**
+     * @When I search for :arg1
+     */
+    public function iSearchFor($arg1)
+    {
+        $this->amOnPage('/');
+        $this->seeElement("input.gLFyf");
+        $this->fillField('input.gLFyf', $arg1);
+        $this->pressKey('input.gLFyf',WebDriverKeys::ENTER);
+        // $this->module->pressKey('#name',  WebDriverKeys::ENTER);
+        $this->wait('3');
+    }
+
    /**
-    * Define custom actions here
+    * @Then I should see :arg1 on the results
     */
+    public function iShouldSeeOnTheResults($arg1)
+    {
+        $this->comment("all good");
+        $this->see($arg1);
+    }
+
+
+
+
+
 }
